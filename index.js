@@ -1,4 +1,4 @@
-#!/usr/bin/env -S node --no-warnings
+#!/usr/bin/env node
 
 import fs from "fs";
 import path from "path";
@@ -52,11 +52,25 @@ const getPackageScripts = () => {
   const cmd = "npm";
   const args = parts;
 
-  console.log(chalk.green(`\nRunning: npm ${args.join(" ")}\n`));
-  const subprocess = execa(cmd, args, { stdio: "inherit" });
+  console.log(chalk.blue(`\nRunning: npm ${args.join(" ")}\n`));
+  try {
+    const subprocess = execa(cmd, args, { stdio: "inherit" });
+    subprocess.stdout?.pipe(process.stdout);
+    subprocess.stderr?.pipe(process.stderr);
 
-  subprocess.stdout?.pipe(process.stdout);
-  subprocess.stderr?.pipe(process.stderr);
+    await subprocess;
+  } catch (error) {
+    console.error(
+      chalk.red(
+        `\nError: Command 'npm ${args.join(" ")}' failed with code ${
+          error.exitCode
+        }`
+      ),
+      chalk.white(`\nError details: ${error.message}`),
+      chalk.blue(`\nClosing npmm...`)
+    );
+    process.exit(1);
+  }
 })();
 
 export default getPackageScripts;
