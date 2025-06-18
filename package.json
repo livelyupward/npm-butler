@@ -1,6 +1,6 @@
 {
   "name": "npm-butler",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple CLI tool to quickly run npm scripts and common commands through an interactive menu.",
   "main": "index.js",
   "type": "module",
@@ -26,7 +26,7 @@
     "url": "https://github.com/livelyupward/npm-butler/issues"
   },
   "engines": {
-    "node": ">=16.14.0"
+    "node": ">=18.19.0"
   },
   "dependencies": {
     "chalk": "^5.4.1",
