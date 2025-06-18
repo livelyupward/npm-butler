@@ -1,0 +1,42 @@
+{
+  "name": "npm-butler",
+  "version": "1.0.0",
+  "description": "A simple CLI tool to quickly run npm scripts and common commands through an interactive menu",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "npm",
+    "cli",
+    "scripts",
+    "productivity",
+    "developer-tools"
+  ],
+  "author": "LivelyUpward <dave@livelyupward.dev>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/livelyupward/npm-butler.git"
+  },
+  "homepage": "https://github.com/livelyupward/npm-butler#readme",
+  "bugs": {
+    "url": "https://github.com/livelyupward/npm-butler/issues"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "execa": "^9.6.0",
+    "inquirer": "^12.6.3"
+  },
+  "bin": {
+    "npm-butler": "./index.js"
+  },
+  "files": [
+    "index.js"
+  ]
+}
